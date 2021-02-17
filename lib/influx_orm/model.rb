@@ -10,7 +10,8 @@ module InfluxORM::Model
 
   module ClassMethods
     def table_name
-      @table_name ||= name.gsub('::', '_').tableize
+      #@table_name ||= name.gsub('::', '_').tableize
+      @table_name ||= name.gsub('Tsdb', '').gsub('::', '_').downcase
     end
 
     %w{
